@@ -91,7 +91,7 @@ def handle_form_submission():
                 if result in ["FAIL", "NUKE"]:
                     message = f"""
 <@{student_id}>
-**UID: {student_id}**  
+**UID:** {student_id}  
 **Attempt:** {attempt}  
 **Result:** **{result}**  
 **Timeout:** {timeout}  
@@ -105,7 +105,7 @@ def handle_form_submission():
                 elif result == "PASS":
                     message = f"""
 <@{student_id}>
-**UID: {student_id}**  
+**UID:** {student_id}  
 **Attempt:** {attempt}  
 **Result:** **{result}**  
 

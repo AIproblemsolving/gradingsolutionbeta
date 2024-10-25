@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 from security import check_password, check_api_key
 from layout import create_header, set_background, emptylines
 from form_handler import handle_form_submission
@@ -10,7 +9,7 @@ set_background()
 emptylines()
 st.markdown("---")
 
-# Initial session state
+# Initial session state setup
 if "password_verified" not in st.session_state:
     st.session_state.password_verified = False
 
@@ -20,12 +19,11 @@ if "api_key_verified" not in st.session_state:
 if "form_submitted" not in st.session_state:
     st.session_state.form_submitted = False
 
-# Helper function to trigger a safe rerun
-def safe_rerun():
-    # Use a flag to manage rerun state
-    if "rerun_trigger" not in st.session_state:
-        st.session_state.rerun_trigger = True
-        st.experimental_rerun()
+if "show_password_success" not in st.session_state:
+    st.session_state.show_password_success = False
+
+if "show_api_key_success" not in st.session_state:
+    st.session_state.show_api_key_success = False
 
 # Password input section
 if not st.session_state.password_verified:
@@ -35,15 +33,15 @@ if not st.session_state.password_verified:
     if st.button("Submit Password"):
         if check_password(password):
             st.session_state.password_verified = True
-            
-            # Use a placeholder for the success message
-            success_placeholder = st.empty()
-            success_placeholder.success("Password verified!")
-            
-            # Set a rerun trigger after displaying success
-            st.session_state.rerun_trigger = True
+            st.session_state.show_password_success = True
+            st.experimental_rerun()  # Rerun the app to update the state
         else:
             st.error("Invalid password!")
+
+# Show password success message if needed
+if st.session_state.show_password_success:
+    st.success("Password verified!")
+    st.session_state.show_password_success = False
 
 # API key input section
 if st.session_state.password_verified and not st.session_state.api_key_verified:
@@ -53,22 +51,15 @@ if st.session_state.password_verified and not st.session_state.api_key_verified:
     if st.button("Submit API Key"):
         if check_api_key(api_key):
             st.session_state.api_key_verified = True
-            st.session_state.api_key = api_key
-            
-            # Use a placeholder for the success message
-            success_placeholder = st.empty()
-            success_placeholder.success("API key verified!")
-            
-            # Set a rerun trigger after displaying success
-            st.session_state.rerun_trigger = True
+            st.session_state.show_api_key_success = True
+            st.experimental_rerun()  # Rerun the app to update the state
         else:
             st.error("Invalid API key!")
 
-# Trigger rerun safely if the flag is set
-if st.session_state.get("rerun_trigger", False):
-    time.sleep(1)  # Optional delay for user to see the success message
-    st.session_state.rerun_trigger = False  # Reset the trigger
-    st.experimental_rerun()
+# Show API key success message if needed
+if st.session_state.show_api_key_success:
+    st.success("API key verified!")
+    st.session_state.show_api_key_success = False
 
 # Handle form submission when both password and API key are verified
 if st.session_state.password_verified and st.session_state.api_key_verified:

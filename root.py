@@ -16,9 +16,6 @@ if "password_verified" not in st.session_state:
 if "api_key_verified" not in st.session_state:
     st.session_state.api_key_verified = False
 
-if "form_submitted" not in st.session_state:
-    st.session_state.form_submitted = False
-
 if "show_password_success" not in st.session_state:
     st.session_state.show_password_success = False
 
@@ -34,13 +31,13 @@ if not st.session_state.password_verified:
         if check_password(password):
             st.session_state.password_verified = True
             st.session_state.show_password_success = True
-            st.experimental_rerun()  # Rerun the app to update the state
         else:
             st.error("Invalid password!")
 
 # Show password success message if needed
 if st.session_state.show_password_success:
     st.success("Password verified!")
+    # Reset the success message after it is shown
     st.session_state.show_password_success = False
 
 # API key input section
@@ -52,13 +49,13 @@ if st.session_state.password_verified and not st.session_state.api_key_verified:
         if check_api_key(api_key):
             st.session_state.api_key_verified = True
             st.session_state.show_api_key_success = True
-            st.experimental_rerun()  # Rerun the app to update the state
         else:
             st.error("Invalid API key!")
 
 # Show API key success message if needed
 if st.session_state.show_api_key_success:
     st.success("API key verified!")
+    # Reset the success message after it is shown
     st.session_state.show_api_key_success = False
 
 # Handle form submission when both password and API key are verified

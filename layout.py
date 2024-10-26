@@ -46,6 +46,7 @@ def hide_st():
     hide_st = """
         <style>
         #MainMenu {visibility: hidden;}
+        #stDecoration {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
         </style>

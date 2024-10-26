@@ -7,10 +7,11 @@ from security import get_api_key_user
 def handle_form_submission():
 
     # Dropdown menu options
-    menu_options = ["Level 1", "Level 1.5", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6"]
+    menu_options = ["Choose Level to Grade", "Level 1", "Level 1.5", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6"]
 
     # Motivation messages should be a 1D array or list
     motiv_messages = np.array([
+        "Na"
         "PROCEED TO BUILDING YOUR LTPI",
         "PROCEED TO BUILDING YOUR MTPI",
         "PROCEED TO BUILDING YOUR RSPS",

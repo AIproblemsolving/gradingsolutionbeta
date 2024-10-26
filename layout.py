@@ -51,6 +51,8 @@ def hide_st():
         header {visibility: hidden;}
         ._profileContainer_1yi6l_53 {display: none;}
         ._profilePreview_1yi6l_63 {display: none;}
+        div[class*="_profileContainer_1yi6l_53"] {display: none;}
+        div[class*="_profilePreview_1yi6l_63"] {display: none;}
         </style>
         """
     st.markdown(hide_st, unsafe_allow_html = True)

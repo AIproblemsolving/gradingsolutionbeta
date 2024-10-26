@@ -41,3 +41,13 @@ def emptylines():
     st.write("")
     st.write("")
     st.write("")
+
+def hide_st():
+    hide_st = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+    st.markdown(hide_st, unsafe_allow_html = True)

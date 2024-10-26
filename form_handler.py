@@ -64,7 +64,7 @@ def handle_form_submission():
         submit_button = st.form_submit_button("Submit")
 
         if submit_button:
-            if menu_options == "Choose Level to Grade":
+            if selected_option == "Choose Level to Grade":
                 st.warning("Which Level are you Grading?")
                 st.stop()
             

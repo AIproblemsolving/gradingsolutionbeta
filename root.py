@@ -22,6 +22,10 @@ if "show_password_success" not in st.session_state:
 if "show_api_key_success" not in st.session_state:
     st.session_state.show_api_key_success = False
 
+# Initialize form submission state
+if "form_submitted" not in st.session_state:
+    st.session_state.form_submitted = False
+
 # Password input section
 if not st.session_state.password_verified:
     st.title("Login")

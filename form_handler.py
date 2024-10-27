@@ -24,7 +24,7 @@ def handle_form_submission():
     grader = get_api_key_user(st.session_state.api_key)
 
     # Dropdown to select the level
-    selected_option = st.selectbox("Choose an option", menu_options, key="selected_option")
+    selected_option = st.selectbox("Choose Level to Grade", menu_options, key="selected_option")
 
     # Get the index of the selected option
     current_index = menu_options.index(selected_option)

@@ -11,7 +11,6 @@ def handle_form_submission():
 
     # Motivation messages should be a 1D array or list
     motiv_messages = np.array([
-        "Na"
         "PROCEED TO BUILDING YOUR LTPI",
         "PROCEED TO BUILDING YOUR MTPI",
         "PROCEED TO BUILDING YOUR RSPS",

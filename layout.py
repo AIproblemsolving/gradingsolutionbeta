@@ -68,14 +68,26 @@ def hide_elements():
         }
     </style>
     <script>
-        // Wait until the DOM content is fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Select elements by class and hide them
-            var profileContainer = document.querySelectorAll('div[class*="profileContainer"], div[class*="profilePreview"]');
-            profileContainer.forEach(function(element) {
-                element.style.display = 'none';
+        // Use a MutationObserver to detect and hide specific elements dynamically
+        const targetNode = document.body;
+        const observerOptions = {
+            childList: true,
+            subtree: true
+        };
+        
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                const profileContainer = document.querySelectorAll('div[class*="profileContainer"], div[class*="profilePreview"]');
+                profileContainer.forEach((element) => {
+                    element.style.display = 'none';
+                });
             });
         });
+
+        observer.observe(targetNode, observerOptions);
     </script>
     """
     st.markdown(hide_elements_script, unsafe_allow_html=True)
+
+hide_elements()
+

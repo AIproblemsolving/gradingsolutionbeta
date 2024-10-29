@@ -45,15 +45,17 @@ def emptylines():
 def hide_st():
     hide_st = """
     <style>
-        #MainMenu {display: none;}
-        #stDecoration {display: none;}
-        footer {display: none;}
-        header {display: none;}
+        #MainMenu {visibility: hidden;}
+        #stDecoration {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
 
-        div[class*="profileContainer"] {display: none;}
-        div[class*="profilePreview"] {display: none;}
+        /* Try hiding more generally scoped classes */
+        div[class*="profileContainer"] {visibility: hidden;}
+        div[class*="profilePreview"] {visibility: hidden;}
 
-        .stApp {display: none;} /* Hide main Streamlit content completely */
+        /* Additional Streamlit main content hiding */
+        .stApp {visibility: hidden;} /* To hide main Streamlit content */
         
         img {display: none;}
         a {

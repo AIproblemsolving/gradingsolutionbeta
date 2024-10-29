@@ -56,7 +56,7 @@ def hide_st():
         ."stMain st-emotion-cache-bm2z3a ea3mdgi8" {display: none;}
         
         div[class*="_profileContainer_1yi6l_53"] {display: none;}
-        div[class*="_profilePreview_1yi6l_63"] {display: none;}
+        div[class*="_profilePreview_51w34_63"] {display: none;}
         
         </style>
         """

@@ -44,29 +44,26 @@ def emptylines():
 
 def hide_st():
     hide_st = """
-    <head>
-        <style>
-        
+    <style>
         #MainMenu {visibility: hidden;}
         #stDecoration {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
         
-        ._profileContainer_1yi6l_53 visibility: hidden;}
-        ._profilePreview_51w34_63 visibility: hidden;}
-        .stMain.st-emotion-cache-bm2z3a.ea3mdgi8 visibility: hidden;}
+        /* Corrected CSS syntax */
+        ._profileContainer_1yi6l_53 {visibility: hidden;}
+        ._profilePreview_51w34_63 {visibility: hidden;}
+        .stMain.st-emotion-cache-bm2z3a.ea3mdgi8 {visibility: hidden;}
         
-        div[class*="_profileContainer_1yi6l_53"] visibility: hidden;}
-        div[class*="_profilePreview_51w34_63"] visibility: hidden;}
+        div[class*="_profileContainer_1yi6l_53"] {visibility: hidden;}
+        div[class*="_profilePreview_51w34_63"] {visibility: hidden;}
 
-        img {display: none}
+        img {display: none;}
         a {
             pointer-events: none;
             cursor: default;
             color: inherit;
         }
-        
-        </style>
-    </head>
-        """
-    st.markdown(hide_st, unsafe_allow_html = True)
+    </style>
+    """
+    st.markdown(hide_st, unsafe_allow_html=True)

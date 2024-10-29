@@ -49,20 +49,6 @@ def hide_st():
         #stDecoration {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
-
-        /* Try hiding more generally scoped classes */
-        div[class*="profileContainer"] {visibility: hidden;}
-        div[class*="profilePreview"] {visibility: hidden;}
-
-        /* Additional Streamlit main content hiding */
-        .stApp {visibility: hidden;} /* To hide main Streamlit content */
-        
-        img {display: none;}
-        a {
-            pointer-events: none;
-            cursor: default;
-            color: inherit;
-        }
     </style>
     """
     st.markdown(hide_st, unsafe_allow_html=True)

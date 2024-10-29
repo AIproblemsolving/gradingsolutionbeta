@@ -50,10 +50,8 @@ def hide_st():
         footer {visibility: hidden;}
         header {visibility: hidden;}
         
-        /* Corrected CSS syntax */
         ._profileContainer_1yi6l_53 {visibility: hidden;}
         ._profilePreview_51w34_63 {visibility: hidden;}
-        .stMain.st-emotion-cache-bm2z3a.ea3mdgi8 {visibility: hidden;}
         
         div[class*="_profileContainer_1yi6l_53"] {visibility: hidden;}
         div[class*="_profilePreview_51w34_63"] {visibility: hidden;}

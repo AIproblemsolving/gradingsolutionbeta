@@ -5,7 +5,6 @@ from form_handler import handle_form_submission
 
 # Set up layout and background
 hide_st()
-hide_elements()
 create_header()
 set_background()
 emptylines()

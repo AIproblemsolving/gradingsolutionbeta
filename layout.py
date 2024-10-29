@@ -44,6 +44,7 @@ def emptylines():
 
 def hide_st():
     hide_st = """
+    <head>
         <style>
         
         #MainMenu {visibility: hidden;}
@@ -66,5 +67,6 @@ def hide_st():
         }
         
         </style>
+    </head>
         """
     st.markdown(hide_st, unsafe_allow_html = True)

@@ -45,17 +45,16 @@ def emptylines():
 def hide_st():
     hide_st = """
     <style>
-        #MainMenu {visibility: hidden;}
-        #stDecoration {visibility: hidden;}
-        footer {visibility: hidden;}
-        header {visibility: hidden;}
-        
-        ._profileContainer_1yi6l_53 {visibility: hidden;}
-        ._profilePreview_51w34_63 {visibility: hidden;}
-        
-        div[class*="_profileContainer_1yi6l_53"] {visibility: hidden;}
-        div[class*="_profilePreview_51w34_63"] {visibility: hidden;}
+        #MainMenu {display: none;}
+        #stDecoration {display: none;}
+        footer {display: none;}
+        header {display: none;}
 
+        div[class*="profileContainer"] {display: none;}
+        div[class*="profilePreview"] {display: none;}
+
+        .stApp {display: none;} /* Hide main Streamlit content completely */
+        
         img {display: none;}
         a {
             pointer-events: none;

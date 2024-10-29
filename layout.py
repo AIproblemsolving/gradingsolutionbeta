@@ -52,3 +52,30 @@ def hide_st():
     </style>
     """
     st.markdown(hide_st, unsafe_allow_html=True)
+
+def hide_elements():
+    hide_elements_script = """
+    <style>
+        #MainMenu {display: none;}
+        #stDecoration {display: none;}
+        footer {display: none;}
+        header {display: none;}
+        img {display: none;}
+        a {
+            pointer-events: none;
+            cursor: default;
+            color: inherit;
+        }
+    </style>
+    <script>
+        // Wait until the DOM content is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select elements by class and hide them
+            var profileContainer = document.querySelectorAll('div[class*="profileContainer"], div[class*="profilePreview"]');
+            profileContainer.forEach(function(element) {
+                element.style.display = 'none';
+            });
+        });
+    </script>
+    """
+    st.markdown(hide_elements_script, unsafe_allow_html=True)

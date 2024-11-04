@@ -8,7 +8,6 @@ hide_st()
 create_header()
 set_background()
 emptylines()
-st.markdown("---")
 
 # Initial session state setup
 if "password_verified" not in st.session_state:

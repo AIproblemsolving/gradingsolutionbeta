@@ -56,7 +56,7 @@ if st.session_state.password_verified and not st.session_state.api_key_verified:
             st.session_state.api_key = api_key  # Store the verified API key
             st.session_state.show_api_key_success = True
         else:
-            st.error("Invalid API key!")
+            st.error("Invalid API key! Make sure there are no spaces before or after the API key.")
 
 # Show API key success message if needed
 if st.session_state.show_api_key_success:

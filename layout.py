@@ -19,7 +19,7 @@ def create_header():
             margin-top: 0px; /* Tiny space above the text */
         }
         .stApp {
-            padding-top: 20px;
+            padding-top: 80px;
         }
         </style>
         <div class="header">

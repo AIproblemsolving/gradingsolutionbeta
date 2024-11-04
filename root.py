@@ -73,6 +73,7 @@ if st.session_state.password_verified and st.session_state.api_key_verified:
 * 30.10.2024 | v1.0 launch
 * 04.11.2024 | v1.1 - Added L4 Asset options in the form.
 """)
+        st.markdown("---")
         
         handle_form_submission()
     else:

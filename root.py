@@ -9,17 +9,14 @@ create_header()
 set_background()
 emptylines()
 
-# Placeholder for status messages
-status_placeholder = st.empty()
-
 # Callback for password verification
 def verify_password():
     password = st.session_state.password_input
     if check_password(password):
         st.session_state.password_verified = True
-        status_placeholder.success("Password verified!")
+        st.success("Password verified!")
     else:
-        status_placeholder.error("Invalid password!")
+        st.error("Invalid password!")
 
 # Callback for API key verification
 def verify_api_key():
@@ -27,9 +24,9 @@ def verify_api_key():
     if check_api_key(api_key):
         st.session_state.api_key_verified = True
         st.session_state.api_key = api_key  # Store the verified API key
-        status_placeholder.success("API key verified!")
+        st.success("API key verified!")
     else:
-        status_placeholder.error("Invalid API key! Make sure there are no spaces before or after the API key.")
+        st.error("Invalid API key! Make sure there are no spaces before or after the API key.")
 
 # Password input section
 if not st.session_state.password_verified:

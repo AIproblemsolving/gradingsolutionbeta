@@ -6,6 +6,7 @@ from form_handler import handle_form_submission
 # Set up layout and background
 hide_st()
 create_header()
+st.markdown("<div style='padding-top: 50px;'></div>", unsafe_allow_html=True)
 set_background()
 emptylines()
 

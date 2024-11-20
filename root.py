@@ -24,9 +24,9 @@ def verify_password():
     password = st.session_state.password_input
     if check_password(password):
         st.session_state.password_verified = True
-        st.success("Password verified!")
+        st.toast("Password verified!", icon="success")
     else:
-        st.error("Invalid password!")
+        st.toast("Invalid password!", icon="error")
 
 # Callback for API key verification
 def verify_api_key():
@@ -34,9 +34,9 @@ def verify_api_key():
     if check_api_key(api_key):
         st.session_state.api_key_verified = True
         st.session_state.api_key = api_key  # Store the verified API key
-        st.success("API key verified!")
+        st.toast("API key verified!", icon="success")
     else:
-        st.error("Invalid API key! Make sure there are no spaces before or after the API key.")
+        st.toast("Invalid API key! Make sure there are no spaces before or after the API key.", icon="error")
 
 # Password input section
 if not st.session_state.password_verified:

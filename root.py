@@ -9,71 +9,64 @@ create_header()
 set_background()
 emptylines()
 
-# Initial session state setup
+# Callback for password verification
+def verify_password():
+    password = st.session_state.password_input
+    if check_password(password):
+        st.session_state.password_verified = True
+        st.success("Password verified!")
+    else:
+        st.error("Invalid password!")
+
+# Callback for API key verification
+def verify_api_key():
+    api_key = st.session_state.api_key_input
+    if check_api_key(api_key):
+        st.session_state.api_key_verified = True
+        st.session_state.api_key = api_key  # Store the verified API key
+        st.success("API key verified!")
+    else:
+        st.error("Invalid API key! Make sure there are no spaces before or after the API key.")
+
+# Initialize session state
 if "password_verified" not in st.session_state:
     st.session_state.password_verified = False
 
 if "api_key_verified" not in st.session_state:
     st.session_state.api_key_verified = False
 
-if "show_password_success" not in st.session_state:
-    st.session_state.show_password_success = False
-
-if "show_api_key_success" not in st.session_state:
-    st.session_state.show_api_key_success = False
-
-# Initialize form submission state
 if "form_submitted" not in st.session_state:
     st.session_state.form_submitted = False
 
 # Password input section
 if not st.session_state.password_verified:
     st.title("Login")
-    password = st.text_input("Enter password", type="password", key="password_input")
-
-    if st.button("Submit Password"):
-        if check_password(password):
-            st.session_state.password_verified = True
-            st.session_state.show_password_success = True
-        else:
-            st.error("Invalid password!")
-
-# Show password success message if needed
-if st.session_state.show_password_success:
-    st.success("Password verified!")
-    # Reset the success message after it is shown
-    st.session_state.show_password_success = False
+    st.text_input(
+        "Enter password", 
+        type="password", 
+        key="password_input", 
+        on_change=verify_password
+    )
 
 # API key input section
 if st.session_state.password_verified and not st.session_state.api_key_verified:
     st.title("API Key Verification")
-    api_key = st.text_input("Enter API key", type="password", key="api_key_input")
+    st.text_input(
+        "Enter API key", 
+        type="password", 
+        key="api_key_input", 
+        on_change=verify_api_key
+    )
 
-    if st.button("Submit API Key"):
-        if check_api_key(api_key):
-            st.session_state.api_key_verified = True
-            st.session_state.api_key = api_key  # Store the verified API key
-            st.session_state.show_api_key_success = True
-        else:
-            st.error("Invalid API key! Make sure there are no spaces before or after the API key.")
-
-# Show API key success message if needed
-if st.session_state.show_api_key_success:
-    st.success("API key verified!")
-    # Reset the success message after it is shown
-    st.session_state.show_api_key_success = False
-
-# Handle form submission when both password and API key are verified
+# Main form submission section
 if st.session_state.password_verified and st.session_state.api_key_verified:
     if "api_key" in st.session_state:
-
         update_logs = st.expander(":construction: Update Logs")
         update_logs.markdown("""
 * 30.10.2024 | v1.0 launch
 * 04.11.2024 | v1.1 - Added L4 Asset options in the form.
 """)
         st.markdown("---")
-        
         handle_form_submission()
     else:
         st.error("API key is missing. Please re-enter the API key.")

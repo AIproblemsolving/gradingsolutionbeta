@@ -57,6 +57,7 @@ if st.session_state.password_verified and st.session_state.api_key_verified:
         update_logs.markdown("""
 * 30.10.2024 | v1.0 launch
 * 04.11.2024 | v1.1 - Added L4 Asset options in the form.
+* 20.11.2024 | v1.1.1 - Optimized Login process with callback functions
 """)
         st.markdown("---")
         handle_form_submission()

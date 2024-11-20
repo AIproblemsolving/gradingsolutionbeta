@@ -9,6 +9,16 @@ create_header()
 set_background()
 emptylines()
 
+# Initialize session state
+if "password_verified" not in st.session_state:
+    st.session_state.password_verified = False
+
+if "api_key_verified" not in st.session_state:
+    st.session_state.api_key_verified = False
+
+if "form_submitted" not in st.session_state:
+    st.session_state.form_submitted = False
+
 # Callback for password verification
 def verify_password():
     password = st.session_state.password_input

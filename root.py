@@ -9,24 +9,17 @@ create_header()
 set_background()
 emptylines()
 
-# Initialize session state
-if "password_verified" not in st.session_state:
-    st.session_state.password_verified = False
-
-if "api_key_verified" not in st.session_state:
-    st.session_state.api_key_verified = False
-
-if "form_submitted" not in st.session_state:
-    st.session_state.form_submitted = False
+# Placeholder for status messages
+status_placeholder = st.empty()
 
 # Callback for password verification
 def verify_password():
     password = st.session_state.password_input
     if check_password(password):
         st.session_state.password_verified = True
-        st.toast("Password verified!", icon="success")
+        status_placeholder.success("Password verified!")
     else:
-        st.toast("Invalid password!", icon="error")
+        status_placeholder.error("Invalid password!")
 
 # Callback for API key verification
 def verify_api_key():
@@ -34,9 +27,9 @@ def verify_api_key():
     if check_api_key(api_key):
         st.session_state.api_key_verified = True
         st.session_state.api_key = api_key  # Store the verified API key
-        st.toast("API key verified!", icon="success")
+        status_placeholder.success("API key verified!")
     else:
-        st.toast("Invalid API key! Make sure there are no spaces before or after the API key.", icon="error")
+        status_placeholder.error("Invalid API key! Make sure there are no spaces before or after the API key.")
 
 # Password input section
 if not st.session_state.password_verified:
